@@ -1,0 +1,25 @@
+# Titanic Survival Analysis - Python Project
+
+**Tools:** Python, Pandas, Matplotlib
+**Dataset:** 891 Passengers
+
+### What I Did:
+1. Checked null values using isnull().sum()
+2. Filled missing Age with mean value
+3. Found survival rate by Gender and Class using groupby
+4. Created new column FamilySize
+
+### Key Insights:
+- Female survival rate was 74% (vs Male 18%)
+- 1st Class passengers survival was highest
+- Average Age was 29 years
+
+### Code:
+import pandas as pd
+df = pd.read_csv('titanic.csv')
+print(df.isnull().sum())
+df['Age'].fillna(df['Age'].mean(), inplace=True)
+print(df.groupby('Sex')['Survived'].mean())
+print(df.groupby('Pclass')['Survived'].mean())
+
+### Author: Rashi Gurjar | Data Analyst Fresher
