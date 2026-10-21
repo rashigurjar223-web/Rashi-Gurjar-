@@ -1,0 +1,45 @@
+-- SQL Test 1 - Rashi Gurjar
+
+CREATE TABLE Employees (
+EmployeeID INT PRIMARY KEY,
+Name VARCHAR(50),
+Salary INT,
+DeptID INT,
+City VARCHAR(50)
+);
+
+INSERT INTO Employees VALUES
+(1, 'Rahul', 60000, 1, 'Indore'),
+(2, 'Priya', 45000, 2, 'Bhopal'),
+(3, 'Amit', 75000, 1, 'Indore'),
+(4, 'Sneha', 55000, 3, 'Ujjain');
+
+-- Q1 Sab employees dikhao
+SELECT * FROM Employees;
+
+-- Q2 Sirf Name aur Salary
+SELECT Name, Salary FROM Employees;
+
+-- Q3 Salary 50000 se jyada
+SELECT * FROM Employees WHERE Salary > 50000;
+
+-- Q4 Indore ke employees
+SELECT * FROM Employees WHERE City = 'Indore';
+
+-- Q5 Salary high to low
+SELECT * FROM Employees ORDER BY Salary DESC;
+
+-- Q6 Top 2 salary wale
+SELECT * FROM Employees ORDER BY Salary DESC LIMIT 2;
+
+-- Q7 Total kitne employees
+SELECT COUNT(*) AS Total FROM Employees;
+
+-- Q8 Average salary
+SELECT AVG(Salary) AS AvgSalary FROM Employees;
+
+-- Q9 City wise count
+SELECT City, COUNT(*) AS Total FROM Employees GROUP BY City;
+
+-- Q10 DeptID wise total salary
+SELECT DeptID, SUM(Salary) AS TotalSalary FROM Employees GROUP BY DeptID;
